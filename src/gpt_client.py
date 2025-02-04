@@ -12,3 +12,6 @@ class GPTClient:
             raise ValueError("GPT API key not found in environment variables")
         openai.api_key = self.api_key
 
+## model="gpt-4o-mini"
+## temperature about 0.6-0.8
+## max_tokens at least 100-150

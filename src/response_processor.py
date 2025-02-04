@@ -16,4 +16,7 @@ class ResponseProcessor:
             level=logging.INFO,
             format='%(asctime)s - %(levelname)s - %(message)s'
         )
-
+ 
+    def process(self):
+        
+        return
