@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import openai
 import logging
 from typing import Optional
+from .config import MODEL_NAME, DEFAULT_TEMPERATURE, MAX_TOKENS
 
 class GPTClient:
     def __init__(self):
@@ -16,17 +17,13 @@ class GPTClient:
     def get_response(self, prompt: str) -> Optional[str]:
         try:
             response = self.client.chat.completions.create(
-                model="gpt-4o-mini",
+                model=MODEL_NAME,
                 messages=[{"role": "system", "content": "Ви — інтелектуальний помічник з обробки даних, якому доручено очищати та структурувати відповіді на опитування для аналізу. Ваша мета — обробити необроблені вхідні дані та надати найбільш відповідний і структурований результат на основі попередньо визначених правил."},
                           {"role": "user", "content": prompt}],
-                temperature=0.7,
-                max_tokens=150
+                temperature=DEFAULT_TEMPERATURE,
+                max_tokens=MAX_TOKENS
             )
             return response.choices[0].message.content.strip()
         except Exception as e:
             logging.error(f"Error while getting response from GPT: {e}")
             return None
-
-## model="gpt-4o-mini"
-## temperature about 0.6-0.8
-## max_tokens at least 100-150
