@@ -3,8 +3,8 @@ from dotenv import load_dotenv
 import openai
 import logging
 from typing import Optional
-from .config import MODEL_NAME, DEFAULT_TEMPERATURE, MAX_TOKENS
-from .prompts import SYSTEM_PROMPT
+from config import *
+from prompts import SYSTEM_PROMPT
 
 class GPTClient:
     def __init__(self):
