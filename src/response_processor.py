@@ -48,4 +48,4 @@ class ResponseProcessor:
 
             output_df = pd.DataFrame(results)
             output_df.to_csv(self.output_file, sep=';', index=False)
-            time.sleep(3)
+            time.sleep(0.05)
